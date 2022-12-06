@@ -1,0 +1,113 @@
+
+
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: #1f2122;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "nav"
+    "main"
+}
+
+body > nav {
+  grid-area: nav;
+  background-color: rgb(29, 174, 184);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+}
+
+body > main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+nav > a {
+  margin: 10px;
+  text-decoration: none;
+ 
+}
+
+nav > logo{
+  margin-right: auto;
+}
+
+#logo{
+
+  font-weight: bold;
+  text-align: left;
+}
+
+a {
+  text-align: flex-end;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  
+}
+
+#top{
+  display:flexbox;
+}
+
+table {
+  font-size: 14px;
+  background-color:rgb(240, 236, 236);
+}
+
+th{
+  display: box;
+  padding : 5px 20px 10px 50px;
+ 
+}
+
+#formNew {
+  background-color: rgb(240, 236, 236);
+  margin-top: 2em;
+  padding: 3em 7em 3em 7em;
+  
+}
+
+#box{
+  padding-top: 3em;
+}
+#row{
+  display:flex;
+  box-sizing: border-box;
+}
+
+#column1, #column2, #column3 {
+
+  background-color: rgb(240, 236, 236);
+  padding: 10px;
+  height: 300px;
+}
+
+#column1 {
+  flex: 20%;
+  font-size: 12px;
+}
+
+#column2 {
+  flex: 20%;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+#column3 {
+  flex: 50%;
+  margin-left: 20px;
+  font-size: 14px;
+}

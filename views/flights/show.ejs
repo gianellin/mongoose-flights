@@ -1,0 +1,56 @@
+<%- include('../partials/header') %>
+<div id="box">
+    <div id="row">
+        <div id="column1">
+            <div><b>  Flight Details </b></div> <br>
+            <div><b>  Airline: </b></div>
+            <div> <%= flightDoc.airline %> </div>
+            <div><b> Airport: </b></div> 
+            <div> <%= flightDoc.airport %> </div>
+            <div><b> Flight #: </b></div>
+            <div> <%= flightDoc.flightNo %> </div>
+            <div> <b>Departure: </b></div>
+            <div> <%= flightDoc.departs %> </div>
+        </div>
+        
+            <div id="column2">
+                    <div> <b>Add Destination </b></div> <br>
+                        <form id="add-destination" method="POST" action="/flights/<%=flightDoc._id %>/destinations">
+                            <label>Airport: 
+                                <select name="airport">
+                                    <option value="AUS"> AUS</option>
+                                    <option value="DFW"> DFW</option>
+                                    <option value="DEN"> DEN</option>
+                                    <option value="LAX"> LAX</option>
+                                    <option value="SAN"> SAN</option>
+                                </select>
+                            </label><br><br>
+                            <label>Arrival Date:
+                                <input type="datetime-local" name="arrival">
+                            </label><br><br>
+                            <input type="submit" value="Add Destination">
+                        </form>
+            </div>
+            <div id="column3">
+                <table>
+                    <thead>
+                      <tr> 
+                        <th> Destination </th>
+                        <th> Arrival Date </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <% flightDoc.destinations.forEach(function(d) { %>
+                        <tr>
+                          <td><%= d.airport %></td>
+                          <td><%= d.arrival %></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                
+               
+            </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>
