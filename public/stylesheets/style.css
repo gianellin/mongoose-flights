@@ -133,6 +133,18 @@ th{
 
 }
 
+#welcome-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: light;
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 250px;
+  
+  
+}
+
 #new-ticket-title{
   font-weight: light;
   font-size: 45px;
