@@ -98,6 +98,7 @@ th{
 #column1 {
   flex: 20%;
   font-size: 12px;
+  font-size: 14px;
 }
 
 #column2 {
@@ -110,4 +111,46 @@ th{
   flex: 50%;
   margin-left: 20px;
   font-size: 14px;
+  font-weight: light;
+  font-size: 45px;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+
+#row2{
+  margin-top: 20px;
+}
+
+#boxTicket {
+  align-items: center;
+  margin-top: 150px;
+  background-color: rgb(240, 236, 236);
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-left: 50px;
+  margin-bottom: 450px;
+  
+
+}
+
+#new-ticket-title{
+  font-weight: light;
+  font-size: 45px;
+  font-family: 'Open Sans', sans-serif; 
+  padding: 20px 20px 20px 20px;
+  align-content: center;
+}
+
+#row2Column1{
+  font-weight: light;
+  font-size: 45px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 100px;
+  background-color:   rgb(240, 236, 236);
+  margin-left: 100px;
+  margin-right: 200px;
+  padding-left: 50px;
+  margin-bottom: 450px;
+  padding-bottom: 40px;
+  padding-top: 30px;
 }

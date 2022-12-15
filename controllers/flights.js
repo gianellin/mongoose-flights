@@ -1,48 +1,55 @@
-
-
-//import Model in order to perform CRUD operations in the DB
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 
-let newFlight = (req, res) => {
-    const newFlight =new Flight();
-
+const newFlight = (req, res) => {
     res.render('flights/new');
 }
-
-let create = (req, res) => {
-    
-    console.log(req.body, 'Contents of the form');
-
-    //The server tells de MODEL to take the form and send from the  client
-    // and out it in the database
+//New flight
+const create = (req, res) => {
+    console.log(req.body, 'Contents of the flight form');
     Flight.create(req.body, function(err, flightDoc){
         if(err) {
         console.log(err);
         res.send('err creating check the terminal')
+        }else {
+            console.log(flightDoc, "----> this is the flightDoc");
+            res.redirect(`/flights`);
         }
-        console.log(flightDoc);
-
-        res.redirect('/index');
     });
-
-
 }
 
+//index Flights
 function index(req, res) {
     Flight.find({}, function(err, flightDocs){
         console.log(flightDocs)
-        
-        //this path is not the broser is from the View folder (nested) - to use that index.ejs.
-        res.render('flights/index', {flights: flightDocs})
+        if(err) {
+            console.log(err);
+            res.send('err in index')
+            }else {
+            //this path is not the broser is from the View folder (nested) - to use that index.ejs.
+            res.render('flights/index', {flights: flightDocs})
+        }
     })
 }
-
-function show(req, res) {
+//show page flights, destinations and tickets
+const show = (req, res) => {
     Flight.findById(req.params.id, function(err, flightDoc){
-
-        //responding to the client, passing in the flightDoc as a variable called flight into the showpage
-        res.render('flights/show', { title: ' Flight Detail ', flightDoc});
-    })
+        Ticket.find({flight: flightDoc._id}, function (err, ticketsDoc) {
+            console.log(ticketsDoc, '<---- ticket information')
+            console.log(flightDoc)
+            if(err) {
+                console.log(err);
+                res.send('err in index')
+                }else {
+                    //RESPONSE RENDER
+                    // 1. res.render (ejs route) 
+                    // 2. I am showing out the flight
+                    // 3. and LAST modification is allowing to render the tickets list in this flight show page. 
+                    // the ticketsDoc was added once the resource TICKET got a controller CREATE
+                    res.render('flights/show', {flightDoc, ticketsDoc});
+                    
+                }});
+    });
 }
 
 module.exports = {

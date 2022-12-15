@@ -31,7 +31,7 @@
                             <input type="submit" value="Add Destination">
                         </form>
             </div>
-            <div id="column3">
+            <div id="column3"> Destinations
                 <table>
                     <thead>
                       <tr> 
@@ -48,9 +48,36 @@
                         <% }); %>
                     </tbody>
                 </table>
-                
-               
             </div>
+    </div>
+    <div id="row2">
+        <div id ="row2Column1"> Tickets
+            <table class="table" >
+                <thead>
+                    <th>
+                        Seat
+                    </th>
+                    <th>
+                        Price
+                    </th>
+               
+                </thead>
+                <tbody>
+                <% ticketsDoc.forEach(function(t) { %>
+                    <tr>
+                        <td><%= t.seat %></td>
+                        <td>$<%=  t.price %></td>
+                        <td> 
+                                <form  action="/tickets/<%= t._id %>?_method=DELETE" method="POST">
+                                 <button id="delete-button" type ="submit"> DELETE </button> 
+                                </form>
+                        </td>
+                    </tr> 
+                <%}) %>
+                </tbody>
+            </table> <br><br>
+            <a href="/flights/<%=flightDoc._id%>/tickets/new"><button id="create-ticket-button">New Ticket</button></a>
+        </div>
     </div>
 </div>
 <%- include('../partials/footer') %>
