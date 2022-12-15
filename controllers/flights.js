@@ -2,7 +2,7 @@ const Flight = require('../models/flight');
 const Ticket = require('../models/ticket');
 
 const newFlight = (req, res) => {
-    res.render('flights/new', {departsDate});
+    res.render('flights/new');
 }
 //New flight
 const create = (req, res) => {
